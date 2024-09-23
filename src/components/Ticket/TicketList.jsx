@@ -7,17 +7,25 @@ import { TicketFilterBar } from "./TicketFilterBar.jsx";
 export const TicketList = ({ currentUser }) => {
   const [allTickets, setAllTickets] = useState([]);
   const [showEmergencyOnly, setShowEmergencyOnly] = useState(false);
+  const [showOpenOnly, setShowOpenOnly] = useState(false);
   const [filteredTickets, setFilteredTickets] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
   const getAndSetTickets = () => {
     getAllTickets().then((ticketsArray) => {
-      setAllTickets(ticketsArray);
+      if (currentUser.isStaff) {
+        setAllTickets(ticketsArray);
+      } else {
+        const customerTickets = ticketsArray.filter(
+          (ticket) => ticket.userId === currentUser.id
+        );
+        setAllTickets(customerTickets);
+      }
     });
   };
   useEffect(() => {
     getAndSetTickets();
-  }, []);
+  }, [currentUser]);
 
   useEffect(() => {
     setFilteredTickets(allTickets);
@@ -38,12 +46,25 @@ export const TicketList = ({ currentUser }) => {
     setFilteredTickets(results);
   }, [searchTerm, allTickets]);
 
+  useEffect(() => {
+    if (showOpenOnly) {
+      const openTickets = allTickets.filter(
+        (ticket) => ticket.dateCompleted === ""
+      );
+      setFilteredTickets(openTickets);
+    } else {
+      setFilteredTickets(allTickets);
+    }
+  }, [allTickets, showOpenOnly]);
+
   return (
     <div className="tickets-container">
       <h2>Tickets</h2>
       <TicketFilterBar
+        currentUser={currentUser}
         setSearchTerm={setSearchTerm}
         setShowEmergencyOnly={setShowEmergencyOnly}
+        setShowOpenOnly={setShowOpenOnly}
       />
 
       <article className="tickets">

@@ -72,8 +72,8 @@
   "employees": [
     {
       "id": 1,
-      "specialty": "Macbook Pros",
-      "rate": "100",
+      "specialty": "Lenovo Space Machines",
+      "rate": "110",
       "userId": 4
     },
     {
@@ -96,13 +96,6 @@
     }
   ],
   "serviceTickets": [
-    {
-      "id": 1,
-      "userId": 3,
-      "description": "Cracked phone screen",
-      "emergency": false,
-      "dateCompleted": "Fri Apr 29 2022 14:02:20 GMT-0500 (Central Daylight Time)"
-    },
     {
       "id": 2,
       "userId": 3,
@@ -145,11 +138,6 @@
     }
   ],
   "employeeTickets": [
-    {
-      "id": 1,
-      "employeeId": 3,
-      "serviceTicketId": 1
-    },
     {
       "id": 3,
       "employeeId": 1,
