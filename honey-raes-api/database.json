@@ -26,7 +26,7 @@
     },
     {
       "id": 5,
-      "fullName": "Franchot Slator",
+      "fullName": "Dinesh Gurung",
       "email": "fslator8@51.la",
       "isStaff": true
     },
@@ -81,6 +81,13 @@
       "specialty": "Printer Repair",
       "rate": 29.45,
       "userId": 6
+    },
+
+    {
+      "id": 4,
+      "specialty": "Super Conductor Repair",
+      "rate": 29.45,
+      "userId": 7
     }
   ],
   "serviceTickets": [
