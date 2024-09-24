@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import "./nav.css";
 
-export const CustomerNav = ({ currentUser }) => {
+export const CustomerNav = () => {
   const navigate = useNavigate();
   return (
     <ul className="navbar">
