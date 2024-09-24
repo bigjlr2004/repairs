@@ -135,6 +135,13 @@
       "emergency": true,
       "dateCompleted": "",
       "id": 7
+    },
+    {
+      "userId": 1,
+      "description": "My phone don't work.",
+      "emergency": true,
+      "dateCompleted": "",
+      "id": 8
     }
   ],
   "employeeTickets": [
